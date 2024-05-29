@@ -33,10 +33,10 @@ blockItem.forEach((item) => {
                 if (crossNumber.length > 3) {
                     crossNumber[3].classList.remove('cross')
                     crossNumber[3].innerText = ' '
-                    crossNumber[3].style.color = ''
+                    crossNumber[3].style.background = ''
                 }
                 if (crossNumber.length > 2) {
-                    crossNumber[2].style.color = 'rgb(255, 0, 0)'
+                    crossNumber[2].style.background = 'rgb(255, 30, 30)'
 
                 }
             } if (counter % 2 !== 0) {
@@ -45,10 +45,10 @@ blockItem.forEach((item) => {
                 if (circleNumber.length > 3) {
                     circleNumber[3].classList.remove('circle')
                     circleNumber[3].innerText = ''
-                    circleNumber[3].style.color = ''
+                    circleNumber[3].style.background = ''
                 }
                 if (circleNumber.length > 2) {
-                    circleNumber[2].style.color = 'rgb(0, 250, 0)'
+                    circleNumber[2].style.background = 'rgb(0, 250, 0)'
                 }
             }
             counter++
