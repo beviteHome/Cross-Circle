@@ -81,6 +81,7 @@ main {
     margin-top: 24px;
     display: none;
     flex-direction: column;
+    width: 200px;
 }
 
 .textWin {
@@ -104,5 +105,61 @@ main {
 }
 
 .btnNewGame:hover {
+    background: rgb(35, 150, 35);
+}
+
+.blockStory {
+    /* margin-top: 24px; */
+    display: flex;
+    flex-direction: row;
+}
+
+.btnStory {
+    padding: 12px;
+    margin-top: 12px;
+    background: rgb(35, 209, 35);
+    border-radius: 15px;
+    color: aliceblue;
+    text-align: center;
+    font-weight: 600;
+    cursor: pointer;
+    width: 176px;
+}
+
+.btnStory:hover {
+    background: rgb(35, 150, 35);
+}
+
+.btnStoryUp {
+    padding: 12px;
+    margin-top: 12px;
+    background: rgb(35, 209, 35);
+    border-radius: 15px;
+    color: aliceblue;
+    text-align: center;
+    font-weight: 600;
+    cursor: pointer;
+    margin-left: 50px;
+    width: 100px;
+}
+
+.btnStoryUp:hover {
+    background: rgb(35, 150, 35);
+}
+
+.btnStoryDown {
+    padding: 12px;
+    margin-top: 12px;
+    background: rgb(35, 209, 35);
+    border-radius: 15px;
+    color: aliceblue;
+    text-align: center;
+    font-weight: 600;
+    cursor: pointer;
+    margin-right: 50px;
+    width: 100px;
+}
+
+.btnStoryDown:hover {
     background: rgb(35, 150, 35);
 }
