@@ -20,8 +20,6 @@ let counter = 0;
 
 let crossNumber = [];
 let circleNumber = [];
-//console.log(crossNumber)
-//crossNumber[step] = 1
 
 blockItem.forEach((item) => {
     item.addEventListener('click', () => {
@@ -57,7 +55,6 @@ blockItem.forEach((item) => {
             who()
             circleWin()
             crossWin()
-            //noWin()
         }
     })
 })
@@ -109,14 +106,6 @@ let crossWin = () => {
     }
 }
 
-
-//let noWin = () => {
-//   if (!crossWin() && !circleWin() && counter >= 9) {
-//        winner = "Ничья"
-//        endGame(winner)
-//    }
-//}
-
 let blockWinner = document.getElementById('blockWinner')
 let spanWin = document.getElementById('spanWin')
 let btnNewGame = document.getElementById('btnNewGame')
@@ -127,6 +116,8 @@ let endGame = (winner) => {
     blockArea.style.pointerEvents = 'none';
     blockWinner.style.display = 'flex'
     spanWin.innerText = winner
+    crossNumber[2].style.removeProperty("background")
+    circleNumber[2].style.removeProperty("background")
 }
 
 btnNewGame.addEventListener('click', () => {
