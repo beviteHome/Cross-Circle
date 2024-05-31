@@ -34,7 +34,7 @@ blockItem.forEach((item) => {
                     crossNumber[3].style.background = ''
                 }
                 if (crossNumber.length > 2) {
-                    crossNumber[2].style.background = 'rgb(255, 30, 30)'
+                    crossNumber[2].style.background = 'rgb(255, 0, 0)'
 
                 }
             } if (counter % 2 !== 0) {
