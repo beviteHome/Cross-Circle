@@ -1,7 +1,9 @@
 let step = 'circle';
 let turn = 'circle';
 let spanWho = document.getElementById('spanWho')
+let turnNumber = document.getElementById('turnNumber')
 let winner = ""
+let counter = 0
 
 const who = () => {
     if (step == 'circle') {
@@ -13,10 +15,12 @@ const who = () => {
     }
 }
 
+turnNumber.innerText = '0'
+
 who()
 
 let blockItem = document.querySelectorAll('.blockItem')
-let counter = 0;
+
 
 let crossNumber = [];
 let circleNumber = [];
@@ -50,8 +54,7 @@ blockItem.forEach((item) => {
                 }
             }
             counter++
-            console.log(counter)
-            console.log(counter % 2 == 0)
+            turnNumber.innerText = counter
             who()
             circleWin()
             crossWin()

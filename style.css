@@ -87,6 +87,7 @@ main {
 .textWin {
     font-size: 25px;
     margin-bottom: 12px;
+    width: 400px;
 }
 
 #spanWin {
