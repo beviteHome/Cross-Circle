@@ -115,9 +115,19 @@ let btnNewGame = document.getElementById('btnNewGame')
 
 let blockArea = document.getElementById('blockArea')
 
+//Классы истории игры
+let blockStory = document.getElementById('blockStory')
+let btnStory = document.getElementById('btnStory')
+let menuStory = document.getElementById('menuStory')
+let btnCloseStory = document.getElementById('btnCloseStory')
+let btnStoryDown = document.getElementById('btnStoryDown')
+let btnStoryUp = document.getElementById('btnStoryUp')
+
+
 let endGame = (winner) => {
     blockArea.style.pointerEvents = 'none';
     blockWinner.style.display = 'flex'
+    blockStory.style.display = 'flex'
     spanWin.innerText = winner
     crossNumber[2].style.removeProperty("background")
     circleNumber[2].style.removeProperty("background")
@@ -125,4 +135,16 @@ let endGame = (winner) => {
 
 btnNewGame.addEventListener('click', () => {
     document.location.reload()
+})
+
+btnStory.addEventListener('click', () => {
+    menuStory.style.display = 'flex'
+    btnStory.style.display = 'none'
+    blockWinner.style.display = 'none'
+})
+
+btnCloseStory.addEventListener('click', () => {
+    menuStory.style.display = ''
+    btnStory.style.display = ''
+    blockWinner.style.display = 'flex'
 })

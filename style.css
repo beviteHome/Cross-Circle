@@ -109,6 +109,11 @@ main {
     background: rgb(35, 150, 35);
 }
 
+.blockStory {
+    display: none;
+    flex-direction: column;
+}
+
 .btnStory {
     padding: 12px;
     margin-top: 12px;
@@ -120,6 +125,7 @@ main {
     font-weight: 600;
     cursor: pointer;
     width: 176px;
+
 }
 
 .btnStory:hover {
@@ -128,7 +134,7 @@ main {
 
 .menuStory {
     /* margin-top: 24px; */
-    display: flex;
+    display: none;
     flex-direction: row;
 }
 
