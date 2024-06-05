@@ -141,6 +141,13 @@ btnStory.addEventListener('click', () => {
     menuStory.style.display = 'flex'
     btnStory.style.display = 'none'
     blockWinner.style.display = 'none'
+    counter = 0
+    turnNumber.innerText = counter
+
+    blockItem.forEach((item) => {
+        item.classList.remove('cross', 'circle', 'winColor')
+        item.innerText = ''
+    })
 })
 
 btnCloseStory.addEventListener('click', () => {

@@ -81,13 +81,14 @@ main {
     margin-top: 24px;
     display: none;
     flex-direction: column;
-    width: 200px;
+    width: 300px;
 }
 
 .textWin {
     font-size: 25px;
     margin-bottom: 12px;
-    width: 400px;
+    text-align: center;
+    width: 300px;
 }
 
 #spanWin {
@@ -96,6 +97,7 @@ main {
 }
 
 .btnNewGame {
+    box-sizing: border-box;
     padding: 12px;
     background: rgb(35, 209, 35);
     border-radius: 15px;
@@ -103,6 +105,8 @@ main {
     text-align: center;
     font-weight: 600;
     cursor: pointer;
+    width: 200px;
+    margin-left: 50px;
 }
 
 .btnNewGame:hover {
