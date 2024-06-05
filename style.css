@@ -109,13 +109,30 @@ main {
     background: rgb(35, 150, 35);
 }
 
-.blockStory {
+.btnStory {
+    padding: 12px;
+    margin-top: 12px;
+    background: rgb(35, 209, 35);
+    border-radius: 15px;
+    color: aliceblue;
+    align-items: center;
+    text-align: center;
+    font-weight: 600;
+    cursor: pointer;
+    width: 176px;
+}
+
+.btnStory:hover {
+    background: rgb(35, 150, 35);
+}
+
+.menuStory {
     /* margin-top: 24px; */
     display: flex;
     flex-direction: row;
 }
 
-.btnStory {
+.btnCloseStory {
     padding: 12px;
     margin-top: 12px;
     background: rgb(35, 209, 35);
@@ -127,7 +144,7 @@ main {
     width: 176px;
 }
 
-.btnStory:hover {
+.btnCloseStory:hover {
     background: rgb(35, 150, 35);
 }
 
@@ -141,7 +158,7 @@ main {
     font-weight: 600;
     cursor: pointer;
     margin-left: 50px;
-    width: 100px;
+    width: 150px;
 }
 
 .btnStoryUp:hover {
@@ -158,7 +175,7 @@ main {
     font-weight: 600;
     cursor: pointer;
     margin-right: 50px;
-    width: 100px;
+    width: 150px;
 }
 
 .btnStoryDown:hover {
