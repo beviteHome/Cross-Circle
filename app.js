@@ -4,6 +4,7 @@ let spanWho = document.getElementById('spanWho')
 let turnNumber = document.getElementById('turnNumber')
 let winner = ""
 let counter = 0
+let gameSafeCounter = 0
 
 const who = () => {
     if (step == 'circle') {
@@ -15,15 +16,15 @@ const who = () => {
     }
 }
 
-turnNumber.innerText = '0'
+turnNumber.innerText = counter + 1
 
 who()
 
 let blockItem = document.querySelectorAll('.blockItem')
 
-
 let crossNumber = [];
 let circleNumber = [];
+let safeGameEnd = [];
 
 blockItem.forEach((item) => {
     item.addEventListener('click', () => {
@@ -54,7 +55,7 @@ blockItem.forEach((item) => {
                 }
             }
             counter++
-            turnNumber.innerText = counter
+            turnNumber.innerText = counter + 1
             who()
             circleWin()
             crossWin()
@@ -102,6 +103,7 @@ let crossWin = () => {
             blockItem[win[i][0]].classList.add('winColor')
             blockItem[win[i][1]].classList.add('winColor')
             blockItem[win[i][2]].classList.add('winColor')
+
             winner = "Крестики"
             endGame(winner)
             return 1
@@ -115,7 +117,7 @@ let btnNewGame = document.getElementById('btnNewGame')
 
 let blockArea = document.getElementById('blockArea')
 
-//Классы истории игры
+//История игры
 let blockStory = document.getElementById('blockStory')
 let btnStory = document.getElementById('btnStory')
 let menuStory = document.getElementById('menuStory')
@@ -129,8 +131,34 @@ let endGame = (winner) => {
     blockWinner.style.display = 'flex'
     blockStory.style.display = 'flex'
     spanWin.innerText = winner
+    gameSafeCounter = counter
     crossNumber[2].style.removeProperty("background")
     circleNumber[2].style.removeProperty("background")
+
+    // 0 - пустая ячейка
+    // 1 - крестик
+    // 2 - нолик
+    // 3 - победитель крестик
+    // 4 - победитель нолик
+
+    blockItem.forEach((item, index) => {
+        if (!item.classList.contains('circle') && !item.classList.contains('cross')) {
+            safeGameEnd[index] = 0
+        }
+        if (item.classList.contains('cross')) {
+            safeGameEnd[index] = 1
+        }
+        if (item.classList.contains('circle')) {
+            safeGameEnd[index] = 2
+        }
+        if (item.classList.contains('cross') && item.classList.contains('winColor')) {
+            safeGameEnd[index] = 3
+        }
+        if (item.classList.contains('circle') && item.classList.contains('winColor')) {
+            safeGameEnd[index] = 4
+        }
+
+    })
 }
 
 btnNewGame.addEventListener('click', () => {
@@ -154,4 +182,35 @@ btnCloseStory.addEventListener('click', () => {
     menuStory.style.display = ''
     btnStory.style.display = ''
     blockWinner.style.display = 'flex'
+
+    counter = gameSafeCounter
+    turnNumber.innerText = counter + 1
+
+    // 0 - пустая ячейка
+    // 1 - крестик
+    // 2 - нолик
+    // 3 - победитель крестик
+    // 4 - победитель нолик
+
+    safeGameEnd.forEach((item, index) => {
+        if (item == 1) {
+            blockItem[index].classList.add('cross')
+            blockItem[index].innerText = 'X'
+        }
+        if (item == 2) {
+            blockItem[index].classList.add('circle')
+            blockItem[index].innerText = 'O'
+        }
+        if (item == 3) {
+            blockItem[index].classList.add('cross')
+            blockItem[index].classList.add('winColor')
+            blockItem[index].innerText = 'X'
+        }
+        if (item == 4) {
+            blockItem[index].classList.add('circle')
+            blockItem[index].classList.add('winColor')
+            blockItem[index].innerText = 'O'
+        }
+
+    })
 })
