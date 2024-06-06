@@ -132,8 +132,14 @@ let endGame = (winner) => {
     blockStory.style.display = 'flex'
     spanWin.innerText = winner
     gameSafeCounter = counter
-    crossNumber[2].style.removeProperty("background")
-    circleNumber[2].style.removeProperty("background")
+
+    if (crossNumber.length > 2) {
+        crossNumber[2].style.removeProperty("background")
+    }
+
+    if (circleNumber.length > 2) {
+        circleNumber[2].style.removeProperty("background")
+    }
 
     // 0 - пустая ячейка
     // 1 - крестик
