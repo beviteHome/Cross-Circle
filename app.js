@@ -25,8 +25,9 @@ let blockItem = document.querySelectorAll('.blockItem')
 let crossNumber = [];
 let circleNumber = [];
 let safeGameEnd = [];
+let gameStory = [];
 
-blockItem.forEach((item) => {
+blockItem.forEach((item, index) => {
     item.addEventListener('click', () => {
         if (!item.classList.contains('circle') && !item.classList.contains('cross')) {
             item.classList.add(step)
@@ -54,6 +55,8 @@ blockItem.forEach((item) => {
                     circleNumber[2].style.background = 'rgb(0, 250, 0)'
                 }
             }
+            gameStory.push(index)
+            console.log(gameStory)
             counter++
             turnNumber.innerText = counter + 1
             who()
@@ -182,6 +185,9 @@ btnStory.addEventListener('click', () => {
         item.classList.remove('cross', 'circle', 'winColor')
         item.innerText = ''
     })
+
+    btnStoryDown.style.visibility = 'hidden'
+    btnStoryUp.style.visibility = 'visible'
 })
 
 btnCloseStory.addEventListener('click', () => {
@@ -219,4 +225,30 @@ btnCloseStory.addEventListener('click', () => {
         }
 
     })
+})
+
+btnStoryDown.addEventListener('click', () => {
+    counter--
+    turnNumber.innerText = counter
+
+    if (counter == 0) {
+        btnStoryDown.style.visibility = 'hidden'
+    }
+
+    if (counter !== gameSafeCounter) {
+        btnStoryUp.style.visibility = 'visible'
+    }
+})
+
+btnStoryUp.addEventListener('click', () => {
+    counter++
+    turnNumber.innerText = counter
+
+    if (counter == gameSafeCounter) {
+        btnStoryUp.style.visibility = 'hidden'
+    }
+
+    if (counter !== 0) {
+        btnStoryDown.style.visibility = 'visible'
+    }
 })
