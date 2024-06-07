@@ -235,7 +235,7 @@ btnStoryDown.addEventListener('click', () => {
         btnStoryDown.style.visibility = 'hidden'
     }
 
-    if (counter !== gameSafeCounter) {
+    if (counter < gameSafeCounter) {
         btnStoryUp.style.visibility = 'visible'
     }
 })
@@ -244,7 +244,7 @@ btnStoryUp.addEventListener('click', () => {
     counter++
     turnNumber.innerText = counter
 
-    if (counter == gameSafeCounter) {
+    if (counter > gameSafeCounter) {
         btnStoryUp.style.visibility = 'hidden'
     }
 
