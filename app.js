@@ -191,6 +191,12 @@ btnStory.addEventListener('click', () => {
 })
 
 btnCloseStory.addEventListener('click', () => {
+
+    blockItem.forEach((item) => {
+        item.classList.remove('cross', 'circle', 'winColor')
+        item.innerText = ''
+    })
+
     menuStory.style.display = ''
     btnStory.style.display = ''
     blockWinner.style.display = 'flex'
@@ -228,6 +234,29 @@ btnCloseStory.addEventListener('click', () => {
 })
 
 btnStoryDown.addEventListener('click', () => {
+
+    //Восстановление предыдущего шага Крестики
+    if (counter % 2 !== 0) {
+        blockItem[gameStory[counter - 1]].classList.remove('cross')
+        blockItem[gameStory[counter - 1]].innerText = ''
+
+        if (counter > 6) {
+            blockItem[gameStory[counter - 7]].classList.add('cross')
+            blockItem[gameStory[counter - 7]].innerText = 'X'
+        }
+    }
+
+    //Восстановление предыдущего шага Нулики
+    if (counter % 2 == 0) {
+        blockItem[gameStory[counter - 1]].classList.remove('circle')
+        blockItem[gameStory[counter - 1]].innerText = ''
+
+        if (counter > 6) {
+            blockItem[gameStory[counter - 7]].classList.add('circle')
+            blockItem[gameStory[counter - 7]].innerText = 'O'
+        }
+    }
+
     counter--
     turnNumber.innerText = counter
 
@@ -238,17 +267,40 @@ btnStoryDown.addEventListener('click', () => {
     if (counter < gameSafeCounter) {
         btnStoryUp.style.visibility = 'visible'
     }
+
 })
 
 btnStoryUp.addEventListener('click', () => {
     counter++
     turnNumber.innerText = counter
 
-    if (counter > gameSafeCounter) {
+    if (counter > gameSafeCounter - 1) {
         btnStoryUp.style.visibility = 'hidden'
     }
 
     if (counter !== 0) {
         btnStoryDown.style.visibility = 'visible'
+    }
+
+    //Восстановление истории Крестики
+    if (counter % 2 !== 0) {
+        blockItem[gameStory[counter - 1]].classList.add('cross')
+        blockItem[gameStory[counter - 1]].innerText = 'X'
+
+        if (counter > 6) {
+            blockItem[gameStory[counter - 7]].classList.remove('cross')
+            blockItem[gameStory[counter - 7]].innerText = ''
+        }
+    }
+
+    //Восстановление истории Нулики
+    if (counter % 2 == 0) {
+        blockItem[gameStory[counter - 1]].classList.add('circle')
+        blockItem[gameStory[counter - 1]].innerText = 'O'
+
+        if (counter > 6) {
+            blockItem[gameStory[counter - 7]].classList.remove('circle')
+            blockItem[gameStory[counter - 7]].innerText = ''
+        }
     }
 })
